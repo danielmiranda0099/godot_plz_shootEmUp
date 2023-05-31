@@ -117,14 +117,16 @@ transitions = [ "RESET", "move_right", SubResource( 14 ), "move_right", "RESET",
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=19]
 
-[node name="Personaje" type="KinematicBody2D"]
+[node name="Personaje" type="KinematicBody2D" groups=[
+"personaje",
+]]
 position = Vector2( 509.598, 356.943 )
 script = ExtResource( 1 )
 
 [node name="Barco" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
 animation = "Idle"
-frame = 4
+frame = 2
 playing = true
 
 [node name="Globo" type="Sprite" parent="."]
