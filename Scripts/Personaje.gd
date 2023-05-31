@@ -16,6 +16,7 @@ func disparo():
 		var instancia_disparo = bala.instance()
 		instancia_disparo.global_position = $DisparoPos.global_position
 		get_tree().root.add_child(instancia_disparo)
+		#instancia_disparo.set_as_toplevel(true)
 
 func get_inputs():
 	movimiento = Vector2()
