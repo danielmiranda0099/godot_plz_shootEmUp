@@ -63,7 +63,7 @@ rotation = 1.78024
 [node name="AnimatedSprite" type="AnimatedSprite" parent="PathFollow2D/Enemigo"]
 frames = SubResource( 7 )
 animation = "Idle"
-frame = 1
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Enemigo"]
@@ -72,7 +72,7 @@ rotation = -1.5708
 shape = SubResource( 8 )
 
 [node name="PathFollow2D2" type="PathFollow2D" parent="."]
-position = Vector2( 1874.31, 390.628 )
+position = Vector2( 1874.31, 390.627 )
 rotation = -1.78406
 offset = 100.0
 rotate = false
@@ -85,6 +85,7 @@ rotation = 1.78024
 [node name="AnimatedSprite" type="AnimatedSprite" parent="PathFollow2D2/Enemigo"]
 frames = SubResource( 7 )
 animation = "Idle"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D2/Enemigo"]
@@ -106,7 +107,7 @@ rotation = 1.78024
 [node name="AnimatedSprite" type="AnimatedSprite" parent="PathFollow2D3/Enemigo"]
 frames = SubResource( 7 )
 animation = "Idle"
-frame = 4
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D3/Enemigo"]
@@ -115,7 +116,7 @@ rotation = -1.5708
 shape = SubResource( 8 )
 
 [node name="PathFollow2D4" type="PathFollow2D" parent="."]
-position = Vector2( 1805.06, 203.154 )
+position = Vector2( 1805.06, 203.153 )
 rotation = -1.78406
 offset = 300.0
 rotate = false
@@ -128,7 +129,7 @@ rotation = 1.78024
 [node name="AnimatedSprite" type="AnimatedSprite" parent="PathFollow2D4/Enemigo"]
 frames = SubResource( 7 )
 animation = "Idle"
-frame = 4
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D4/Enemigo"]
@@ -150,7 +151,7 @@ rotation = 1.78024
 [node name="AnimatedSprite" type="AnimatedSprite" parent="PathFollow2D5/Enemigo"]
 frames = SubResource( 7 )
 animation = "Idle"
-frame = 3
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D5/Enemigo"]

@@ -150,3 +150,10 @@ tree_root = SubResource( 18 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 19 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="DisparoPos" type="Position2D" parent="."]
+position = Vector2( 95.7314, 31.514 )
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -4,7 +4,18 @@ export (int) var velocidad = 600
 
 onready var playback = $AnimationTree.get("parameters/playback")
 
+onready var bala = preload("res://Scenes/Disparo.tscn")
+var cooldown = true
+
 var movimiento = Vector2(0, 0)
+
+func disparo():
+	if cooldown:
+		cooldown = false
+		$Timer.start()
+		var instancia_disparo = bala.instance()
+		instancia_disparo.global_position = $DisparoPos.global_position
+		get_tree().root.add_child(instancia_disparo)
 
 func get_inputs():
 	movimiento = Vector2()
@@ -22,6 +33,9 @@ func get_inputs():
 	if Input.is_action_pressed("move_left"):
 		movimiento.x -= velocidad
 		playback.travel("move_left")
+		
+	if Input.is_action_pressed("attack"):
+		disparo()
 	
 	if movimiento == Vector2():
 		playback.start("RESET")
@@ -29,3 +43,7 @@ func get_inputs():
 func _physics_process(_delta):
 	get_inputs()
 	movimiento = move_and_slide(movimiento)
+
+
+func _on_Timer_timeout():
+	cooldown = true
