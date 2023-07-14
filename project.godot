@@ -19,6 +19,10 @@ config/name="arkanet"
 run/main_scene="res://Scenes/Nivel 1.tscn"
 config/icon="res://icon-arkanet.png"
 
+[autoload]
+
+Global="*res://Scripts/Global.gd"
+
 [display]
 
 window/size/width=1920
