@@ -2,9 +2,12 @@ extends KinematicBody2D
 
 export (int) var velocidad = 600
 
+var powerup = false
+
 onready var playback = $AnimationTree.get("parameters/playback")
 
 onready var bala = preload("res://Scenes/Disparo.tscn")
+onready var balaEspecial = preload("res://Scenes/DisparoEspecial.tscn")
 var cooldown = true
 
 var movimiento = Vector2(0, 0)
@@ -13,7 +16,11 @@ func disparo():
 	if cooldown:
 		cooldown = false
 		$Timer.start()
-		var instancia_disparo = bala.instance()
+		var instancia_disparo
+		if(powerup):
+			instancia_disparo =  balaEspecial.instance()
+		else:
+			instancia_disparo = bala.instance()			
 		instancia_disparo.global_position = $DisparoPos.global_position
 		get_tree().root.add_child(instancia_disparo)
 		#instancia_disparo.set_as_toplevel(true)
