@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scripts/Personaje.gd" type="Script" id=1]
 [ext_resource path="res://Assets/personaje/pj_barco_2.png" type="Texture" id=2]
@@ -89,6 +89,45 @@ tracks/0/keys = {
 "values": [ 0.0, -4.0 ]
 }
 
+[sub_resource type="Animation" id=21]
+resource_name = "take_damage"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.45, 0.65, 0.75, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.0195312, 0.0195312, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0.0195312, 0.0195312, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0.0195312, 0.0195312, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:collision_layer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:collision_mask")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
 [sub_resource type="AnimationNodeAnimation" id=11]
 animation = "RESET"
 
@@ -117,21 +156,24 @@ transitions = [ "RESET", "move_right", SubResource( 14 ), "move_right", "RESET",
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=19]
 
+[sub_resource type="CapsuleShape2D" id=20]
+radius = 75.0859
+height = 75.9944
+
 [node name="Personaje" type="KinematicBody2D" groups=[
 "personaje",
 ]]
 position = Vector2( 509.598, 356.943 )
+collision_layer = 2147483649
 script = ExtResource( 1 )
 
 [node name="Barco" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
 animation = "Idle"
-frame = 4
 playing = true
 
 [node name="Globo" type="Sprite" parent="."]
 position = Vector2( 22.4434, -57.788 )
-rotation = 0.0698132
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -144,6 +186,7 @@ disabled = true
 anims/RESET = SubResource( 8 )
 anims/move_left = SubResource( 9 )
 anims/move_right = SubResource( 10 )
+anims/take_damage = SubResource( 21 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 18 )
@@ -156,4 +199,13 @@ wait_time = 0.5
 
 [node name="DisparoPos" type="Position2D" parent="."]
 position = Vector2( 95.7314, 31.514 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+modulate = Color( 0.681648, 0.0619965, 0.933594, 1 )
+position = Vector2( 17.8382, -14.8651 )
+rotation = 1.5708
+shape = SubResource( 20 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

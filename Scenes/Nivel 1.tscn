@@ -10,5 +10,14 @@
 
 [node name="GrupoEnemigos" parent="." instance=ExtResource( 2 )]
 
+[node name="GrupoEnemigos2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 320.389, 23.7842 )
+
 [node name="EnemigoDirigido" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1674.43, 412.95 )
+
+[node name="EnemigoDirigido2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 986.43, 936.95 )
+
+[node name="EnemigoDirigido3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1242.43, 84.95 )
