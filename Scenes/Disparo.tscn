@@ -54,7 +54,7 @@ height = 21.9412
 radius = 5.39866
 height = 20.25
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="Disparo" type="RigidBody2D"]
 position = Vector2( 22.2363, 104.988 )
 mode = 2
 gravity_scale = 0.0
@@ -79,4 +79,8 @@ self_modulate = Color( 1, 0, 0, 1 )
 position = Vector2( -0.267262, -0.0402012 )
 rotation = 1.5708
 shape = SubResource( 10 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( -27.375, 1.125 )
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
