@@ -9,5 +9,8 @@ func _ready():
 
 func _physics_process(delta):
 	for recorrido in recorridos:
-		recorrido.offset += speed*delta	
+		recorrido.offset += speed*delta
 
+
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free()

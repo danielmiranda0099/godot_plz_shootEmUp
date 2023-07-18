@@ -16,3 +16,7 @@ func set_explosion():
 func _physics_process(delta):
 	posicion_personaje = personaje[0].global_position
 	global_position = global_position.move_toward(posicion_personaje, velocidad*delta)
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free()
