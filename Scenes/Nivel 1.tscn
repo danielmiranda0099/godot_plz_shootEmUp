@@ -21,7 +21,6 @@ radius = 35.3848
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2( 5760, 0 )
 script = ExtResource( 10 )
-velocidad = 5
 
 [node name="fondo" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2( 2880, 540 )
@@ -30,7 +29,6 @@ texture = ExtResource( 7 )
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2( 5760, 0 )
 script = ExtResource( 10 )
-velocidad = 8
 
 [node name="Monte" parent="ParallaxBackground/ParallaxLayer2" instance=ExtResource( 6 )]
 
@@ -44,23 +42,27 @@ script = ExtResource( 9 )
 
 [node name="Personaje" parent="Camera2D" instance=ExtResource( 1 )]
 position = Vector2( -450.402, -183.057 )
+z_index = 0
+z_as_relative = true
+collision_layer = 2147483649
 
 [node name="GrupoEnemigos" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1891.76, -42.3784 )
 
 [node name="GrupoEnemigos2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 320.389, 23.7842 )
+position = Vector2( 3142.8, -69.4485 )
 
 [node name="EnemigoDirigido" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1674.43, 412.95 )
+position = Vector2( 716.43, 488.069 )
 
 [node name="EnemigoDirigido2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 986.43, 936.95 )
+position = Vector2( 3209.29, 1011.96 )
 
 [node name="EnemigoDirigido3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1242.43, 84.95 )
+position = Vector2( 3478.67, 49.7309 )
 
 [node name="PowerUp" type="Area2D" parent="."]
-position = Vector2( 854.185, 345.068 )
+position = Vector2( 1951.3, 343.132 )
 script = ExtResource( 5 )
 
 [node name="powerUp" type="Sprite" parent="PowerUp"]
